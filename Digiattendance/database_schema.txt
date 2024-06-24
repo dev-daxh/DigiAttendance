@@ -1,0 +1,112 @@
+Student Information Database (`stu_info`)
+
+Description:
+The `stu_info` table stores information about students enrolled in the system. Each record represents a student and contains fields for their name, enrollment number, phone number, email address, username, and password.
+
+Fields:
+1. `id`: Unique identifier for each student (Primary Key)
+2. `name`: Name of the student
+3. `enroll`: Enrollment number of the student
+4. `phone_no`: Phone number of the student
+5. `email`: Email address of the student
+6. `username`: Username chosen by the student
+7. `password`: Password chosen by the student
+
+SQL Command:
+CREATE TABLE stu_info (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    enroll VARCHAR(255) NOT NULL,
+    phone_no VARCHAR(15) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int          | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(255) | NO   |     | NULL    |                |
+| enroll   | varchar(255) | NO   |     | NULL    |                |
+| phone_no | varchar(15)  | NO   |     | NULL    |                |
+| email    | varchar(255) | NO   |     | NULL    |                |
+| username | varchar(255) | NO   |     | NULL    |                |
+| password | varchar(255) | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+
+
+------------------------------------------------------------------------------------------
+
+Faculty Information Database (`fac_info`)
+
+Description:
+The `fac_info` table stores information about faculty members. Each record represents a faculty member and contains fields for their name, faculty ID, phone number, email address, username, and password.
+
+Fields:
+1. `name`: Name of the faculty member
+2. `faculty_id`: Unique identifier for each faculty member
+3. `phone_no`: Phone number of the faculty member
+4. `email`: Email address of the faculty member
+5. `user`: Username chosen by the faculty member
+6. `password`: Password chosen by the faculty member
+
+SQL Command:
+CREATE TABLE fac_info (
+    name VARCHAR(255),
+    faculty_id INT,
+    phone_no VARCHAR(15),
+    email VARCHAR(255),
+    user VARCHAR(50),
+    password VARCHAR(255)
+);
+
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| name       | varchar(255) | YES  |     | NULL    |       |
+| faculty_id | int          | YES  |     | NULL    |       |
+| phone_no   | varchar(15)  | YES  |     | NULL    |       |
+| email      | varchar(255) | YES  |     | NULL    |       |
+| user       | varchar(50)  | YES  |     | NULL    |       |
+| password   | varchar(255) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+
+------------------------------------------------------------------------------------------
+
+Course-wise QR Code Database
+
+Description:
+The database contains separate tables for each course (`cm201g`, `cm202g`, `cm203g`, `cm204g`, `cm205g`, etc.). These tables store QR code data for attendance marking. Each record represents a QR code associated with a specific course.
+
+Fields:
+1. `qr_code`: QR code data for attendance marking
+
+SQL Command (Example for `cm201g`):
+CREATE TABLE cm201g (
+    qr_code VARCHAR(255)
+);
+
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| qr_code | varchar(255) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+
+
+------------------------------------------------------------------------------------------
+
+
+User Interaction and Functionality:
+
+- User Registration: Users can register themselves by providing necessary information such as name, enrollment number, phone number, email address, username, and password.
+  
+- Login: Registered users can log in using their username and password.
+  
+- Forgot Password: Users can reset their password by providing their email address and following the password reset procedure.
+  
+- Course Selection and QR Code Scanning: Users select the course from a dropdown menu and enter the scanned QR code value. Upon validation, they input their enrollment number for confirmation.
+  
+- Attendance Marking: If all validations are successful, the attendance is marked in the respective course's Excel sheet, which includes enrollment number and timestamp.
+
+------------------------------------------------------------------------------------------
